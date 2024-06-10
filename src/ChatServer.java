@@ -10,7 +10,7 @@ public class ChatServer {
     public static void main(String[] args) {
         ExecutorService pool = Executors.newFixedThreadPool(10);
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-            System.out.println("Server started and listening on port " + PORT);
+            System.out.println("Сервер запущен и слушает порт " + PORT);
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
@@ -50,8 +50,8 @@ public class ChatServer {
                 out = new PrintWriter(socket.getOutputStream(), true);
 
                 String username = in.readLine();
-                System.out.println(username + " connected");
-                broadcast(username + " joined the chat", this);
+                System.out.println(username + " подключился");
+                broadcast(username + " вступил в чат", this);
 
                 String message;
                 while ((message = in.readLine()) != null) {
@@ -67,7 +67,7 @@ public class ChatServer {
                     /**/
                 }
                 removeClient(this);
-                System.out.println("Client disconnected");
+                System.out.println("Клиент отключился");
             }
         }
 

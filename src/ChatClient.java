@@ -12,7 +12,7 @@ public class ChatClient {
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
 
             Scanner scanner = new Scanner(System.in);
-            System.out.print("Enter your username: ");
+            System.out.print("Введите ваше имя в чате: ");
             String username = scanner.nextLine();
             out.println(username);
 
